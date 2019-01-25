@@ -1,0 +1,16 @@
+Source: libqtzplugins
+Section: libs
+Priority: optional
+Maintainer: Soroush Rabiei <soroush@ametisco.ir>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: https://github.com/soroush/qtz
+Vcs-Git: https://github.com/soroush/qtz
+
+Package: libqtzplugins
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libqtzwidgets-dev (>= 0.4), qttools5-dev (>= 5.9)
+Description: Qtz is a Qt-based Application Development Framework.
+ Qtz Plugins provides QtCreator plugins for Qtz Widgets library
+
