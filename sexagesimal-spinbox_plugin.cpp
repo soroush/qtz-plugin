@@ -51,9 +51,14 @@ bool SexagesimalSpinboxPlugin::isContainer() const {
 }
 
 QString SexagesimalSpinboxPlugin::domXml() const {
-    return QLatin1String("<widget class=\"SexagesimalSpinBox\" name=\"sexagesimalSpinBox\">\n</widget>\n");
+    return QLatin1String("<widget class=\"SexagesimalSpinBox\" name=\"sexagesimalSpinBox\">\n"
+                         "</widget>\n");
 }
 
 QString SexagesimalSpinboxPlugin::includeFile() const {
+#if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/editors/sexagesimal-spinbox.hpp");
+#elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/editors/sexagesimal-spinbox.hpp");
+#endif
 }

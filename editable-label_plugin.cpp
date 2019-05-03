@@ -55,6 +55,10 @@ QString EditableLabelPlugin::domXml() const {
 }
 
 QString EditableLabelPlugin::includeFile() const {
+    #if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/editors/editable-label.hpp");
+    #elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/editors/editable-label.hpp");
+    #endif
 }
 

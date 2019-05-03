@@ -55,5 +55,9 @@ QString JalaliDateEditPlugin::domXml() const {
 }
 
 QString JalaliDateEditPlugin::includeFile() const {
+    #if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/editors/jalali-date-edit.hpp");
+    #elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/editors/jalali-date-edit.hpp");
+    #endif
 }

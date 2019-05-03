@@ -51,9 +51,15 @@ bool ImageViewerPlugin::isContainer() const {
 }
 
 QString ImageViewerPlugin::domXml() const {
-    return QLatin1String("<widget class=\"ImageViewer\" name=\"imageViewer\">\n</widget>\n");
+    return QLatin1String(
+                "<widget class=\"ImageViewer\" name=\"imageViewer\">\n"
+                "</widget>\n");
 }
 
 QString ImageViewerPlugin::includeFile() const {
+#if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/viewers/image-viewer.hpp");
+#elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/viewers/image-viewer.hpp");
+#endif
 }

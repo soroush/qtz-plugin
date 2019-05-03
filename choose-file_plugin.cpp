@@ -55,5 +55,9 @@ QString ChooseFilePlugin::domXml() const {
 }
 
 QString ChooseFilePlugin::includeFile() const {
+    #if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/misc/choose-file.hpp");
+    #elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/misc/choose-file.hpp");
+    #endif
 }

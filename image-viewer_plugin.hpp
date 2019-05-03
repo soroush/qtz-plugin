@@ -9,7 +9,7 @@ class QTZ_PLUGIN_SHARED_EXPORT ImageViewerPlugin : public QObject, public QDesig
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 
 public:
-    ImageViewerPlugin(QObject* parent = 0);
+    ImageViewerPlugin(QObject* parent = nullptr);
 
     bool isContainer() const;
     bool isInitialized() const;

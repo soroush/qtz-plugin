@@ -1,6 +1,6 @@
-CONFIG      += plugin debug_and_release
+CONFIG += plugin debug_and_release
 CONFIG += c++11
-QT += designer
+QT     += widgets uiplugin designer
 
 TARGET      = $$qtLibraryTarget(qtzplugin)
 TEMPLATE    = lib
@@ -24,9 +24,12 @@ CONFIG(debug, debug|release){
 
 CONFIG(local){
     INCLUDEPATH += ../
-    LIBS    += -L"../qtz/core/$$BUILD" -lQtzCore$${BUILD_SUFFIX}$${LINK_MAJ}
-    LIBS    += -L"../qtz/data/$$BUILD" -lQtzData$${BUILD_SUFFIX}$${LINK_MAJ}
-    LIBS    += -L"../qtz/widgets/$$BUILD" -lQtzWidgets$${BUILD_SUFFIX}$${LINK_MAJ}
+    QMAKE_LIBDIR += "$$OUT_PWD/../core/$$BUILD"
+    QMAKE_LIBDIR += "$$OUT_PWD/../data/$$BUILD"
+    QMAKE_LIBDIR += "$$OUT_PWD/../widgets/$$BUILD"
+    LIBS    += -lQtzCore$${BUILD_SUFFIX}$${LINK_MAJ}
+    LIBS    += -lQtzData$${BUILD_SUFFIX}$${LINK_MAJ}
+    LIBS    += -lQtzWidgets$${BUILD_SUFFIX}$${LINK_MAJ}
     QT      += sql gui widgets
 } else {
     CONFIG  += QTZ

@@ -55,5 +55,9 @@ QString NumericQueryPlugin::domXml() const {
 }
 
 QString NumericQueryPlugin::includeFile() const {
+    #if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/data/numeric-query.hpp");
+    #elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/data/numeric-query.hpp");
+    #endif
 }

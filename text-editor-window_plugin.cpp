@@ -52,10 +52,15 @@ bool TextEditorWindowPlugin::isContainer() const {
 }
 
 QString TextEditorWindowPlugin::domXml() const {
-    return QLatin1String("<widget class=\"TextEditorWindow\" name=\"textEditor\">\n</widget>\n");
+    return QLatin1String("<widget class=\"TextEditorWindow\" name=\"textEditor\">\n"
+                         "</widget>\n");
 }
 
 QString TextEditorWindowPlugin::includeFile() const {
+    #if defined (Q_OS_LINUX)
+    return QLatin1String("/usr/include/qtz/widgets/editors/text-editor-window.hpp");
+    #elif defined(Q_OS_WIN)
     return QLatin1String("qtz/widgets/editors/text-editor-window.hpp");
+    #endif
 }
 
